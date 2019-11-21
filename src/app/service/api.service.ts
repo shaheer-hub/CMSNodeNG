@@ -18,9 +18,9 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
-  getProducts(data): Observable<any> {
+  getProducts() {
     let url = `${this.baseUri}/get`;
-    return this.http.get(url, data).pipe(
+    return this.http.get(url).pipe(
       catchError(this.errorMgmt)
     )
   }

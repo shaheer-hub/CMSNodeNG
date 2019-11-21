@@ -1,1 +1,32 @@
-<p>product-get works!</p>
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="Product.length <= 0" class="no-data text-center">There is no product added yet!</p>
+  
+    <!-- Employee list -->
+    <table class="table table-bordered" *ngIf="Product.length > 0">
+      <thead class="table-success">
+        <tr>
+            <td>{{product.prod_name}}</td>
+            <td>{{product.prod_price}}</td>
+            <td>{{product.prod_description}}</td>
+            <td>{{product.prod_category}}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of Product; let i = index">
+          <td>{{product.prod_name}}</td>
+          <td>{{product.prod_price}}</td>
+          <td>{{product.prod_description}}</td>
+          <td>{{product.prod_category.cat_name}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/edit-product/', product._id]">
+              <button type="button" class="btn btn-success btn-sm">Edit</button>
+            </span>
+            <span class="delete" (click)="removeProduct(product, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
