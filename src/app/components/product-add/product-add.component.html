@@ -1,0 +1,42 @@
+<div class="example-container">
+    <h3>ADD PRODUCT</h3>
+    <form method="post" action="products/product-add" [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <mat-form-field>
+                <label><b>Product Name:</b></label>
+                <input matInput placeholder="" formControlName="prod_name" />
+                
+            </mat-form-field>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.prod_name.errors?.required">
+                Name is required.
+              </div>
+            <mat-form-field>
+                <label><b>Product Price:</b></label>
+                <textarea matInput placeholder="" formControlName="prod_price"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <label><b>Product Description:</b></label>
+                <textarea matInput placeholder="" formControlName="prod_description"></textarea>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <label><b>Select Category:</b></label>
+                <mat-select placeholder="" class="ddl" formControlName="prod_category">
+                    <mat-option value="option" >Casual</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                    <label><b>Select ProductType:</b></label>
+                    <mat-select placeholder="" class="ddl" formControlName="prod_productType">
+                        <mat-option value="option">Grocey</mat-option>
+                        
+                    </mat-select>
+                </mat-form-field>
+               <div class="imgdiv">
+                    <label> <b>Select Images:</b> </label>
+                    <input placeholder="" type="file" id="file" name="image" (change)="onFileChanged($event)"  accept="image/*" />
+               </div>
+               <!-- <button mat-raised-button type="submit" color="primary" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Submit</button>  -->
+                <button mat-raised-button type="submit"  color="primary">Submit</button>
+    </form>
+    
+</div>

@@ -1,0 +1,17 @@
+.example-container{
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   width:40%;
+}
+.example-container > * {
+    width: 50%;
+  }
+  .imgdiv{
+    padding-bottom:10px; 
+  }
+.mat-input-element,.ddl:not(#file) {
+    border: 2px solid;
+    border-color: #61618f;
+    
+  }
