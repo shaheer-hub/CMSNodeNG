@@ -10,10 +10,12 @@ import { ApiService } from './service/api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './material.module';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FileSelectDirective,
     ProductAddComponent,
     ProductGetComponent
   ],

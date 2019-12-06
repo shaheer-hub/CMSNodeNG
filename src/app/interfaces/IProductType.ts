@@ -1,0 +1,5 @@
+interface IProductType {
+    ptName:string;
+
+}
+  

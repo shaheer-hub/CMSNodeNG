@@ -1,0 +1,4 @@
+interface ICategory {
+    cName:string;
+ 
+}

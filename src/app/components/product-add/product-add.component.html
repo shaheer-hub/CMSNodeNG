@@ -1,6 +1,6 @@
 <div class="example-container">
     <h3>ADD PRODUCT</h3>
-    <form method="post" action="products/product-add" [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <form method="post" action="products/product-add" [formGroup]="productForm"   enctype="multipart/form-data">
         <mat-form-field>
                 <label><b>Product Name:</b></label>
                 <input matInput placeholder="" formControlName="prod_name" />
@@ -18,25 +18,26 @@
                 <textarea matInput placeholder="" formControlName="prod_description"></textarea>
             </mat-form-field>
         
-            <mat-form-field>
+            <br/>
                 <label><b>Select Category:</b></label>
-                <mat-select placeholder="" class="ddl" formControlName="prod_category">
-                    <mat-option value="option" >Casual</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
+                <select placeholder="" class="ddl" formControlName="prod_category">
+                    <option value={{category._id}} *ngFor="let category of Category; let i = index">{{category.cat_name}}</option>
+                </select>
+            
+            <br/>
                     <label><b>Select ProductType:</b></label>
-                    <mat-select placeholder="" class="ddl" formControlName="prod_productType">
-                        <mat-option value="option">Grocey</mat-option>
+                    <select placeholder="" class="ddl" formControlName="prod_productType" >
+
+                        <option value={{prodtype._id}}  *ngFor="let prodtype of ProductType; let i = index">{{prodtype.prodtype_name}}</option>
                         
-                    </mat-select>
-                </mat-form-field>
+                    </select>
+                
                <div class="imgdiv">
                     <label> <b>Select Images:</b> </label>
-                    <input placeholder="" type="file" id="file" name="image" (change)="onFileChanged($event)"  accept="image/*" />
+                    <input placeholder="" type="file" id="prod_photo" name="prod_photo" ng2FileSelect [uploader]="uploader" (change)="onFileChanged($event)" formControlName="prod_photo" accept="image/*" />
                </div>
                <!-- <button mat-raised-button type="submit" color="primary" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Submit</button>  -->
-                <button mat-raised-button type="submit"  color="primary">Submit</button>
+                <button mat-raised-button type="submit"  color="primary" (click) ="onSubmit(productForm.value)">Submit</button>
     </form>
     
 </div>

@@ -13,5 +13,6 @@
 .mat-input-element,.ddl:not(#file) {
     border: 2px solid;
     border-color: #61618f;
+    color:#61618f;
     
   }
